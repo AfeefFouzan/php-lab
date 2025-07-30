@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Number Type Checker</title>
+    <script>
+        function checkNumberType(num) {
+            if (num <= 0) {
+                alert("Please enter a positive number.");
+                return;
+            }
+
+            let sum = 0;
+
+            // Calculate sum of proper divisors
+            for (let i = 1; i <= Math.floor(num / 2); i++) {
+                if (num % i === 0) {
+                    sum += i;
+                }
+            }
+
+            if (sum === num) {
+                alert(num + " is a Perfect number.");
+            } else if (sum > num) {
+                alert(num + " is an Abundant number.");
+            } else {
+                alert(num + " is a Deficient number.");
+            }
+        }
+
+        // Ask user for input when page loads
+        window.onload = function() {
+            let input = prompt("Enter a number:");
+            let number = parseInt(input);
+
+            if (!isNaN(number)) {
+                checkNumberType(number);
+            } else {
+                alert("Invalid input. Please enter a numeric value.");
+            }
+        }
+    </script>
+</head>
+<body>
+    <h1>Open the alert box to see the result!</h1>
+</body>
+</html>
